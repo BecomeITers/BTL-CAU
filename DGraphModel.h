@@ -67,7 +67,7 @@ public:
         while (itInward != inwardEdges.end()){
             typename AbstractGraph<T>::VertexNode* sourceNode = this->getVertexNode(*itInward);
             if (sourceNode){
-                sourceNode->removeTo(targetNode); // Xóa cạnh từ sourceNode đến targetNode
+                sourceNode->removeTo(targetNode);
             }
             ++itInward;
         }
@@ -76,7 +76,7 @@ public:
         while (itOutward != outwardEdges.end()){
             typename AbstractGraph<T>::VertexNode* destNode = this->getVertexNode(*itOutward);
             if (destNode){
-                targetNode->removeTo(destNode); // Xóa cạnh từ targetNode đến destNode
+                targetNode->removeTo(destNode);
             }
             ++itOutward;
         }
@@ -90,11 +90,11 @@ public:
             string (*vertex2str)(T&)){
         //TODO
         DGraphModel<T>* graph = new DGraphModel<T>(vertexEQ, vertex2str);
-        // Thêm các đỉnh
+
         for (int i = 0; i < nvertices; i++){
             graph->add(vertices[i]);
         }
-        // Thêm các cạnh
+
         for (int i = 0; i < nedges; i++){
             graph->connect(edges[i].from->vertex, edges[i].to->vertex, edges[i].weight);
         }
